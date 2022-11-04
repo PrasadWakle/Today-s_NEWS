@@ -6,7 +6,7 @@ export default function CarouselItem(props) {
 
   return (
     <Container key={id}>
-      <div className="carousel-item active" data-bs-interval="5000">
+      <div className="carousel-item active" data-bs-interval="3000">
         <a href={url} className="image-tag">
           <img src={imgToUrl} className="d-block w-100" alt="" />
         </a>
