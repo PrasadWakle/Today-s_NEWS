@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 function Weather() {
-  const [myData, setMyData] = useState({
+  const [newsData, setNewsData] = useState({
     temperature: "",
     description: "",
     img: "",
@@ -34,7 +34,7 @@ function Weather() {
         const icon = weatherToday.weather[0].icon;
         const imageURL = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
   
-        setMyData({
+        setNewsData({
           temperature: temp,
           description: description,
           img: imageURL,
@@ -47,7 +47,7 @@ function Weather() {
     weatherData();
   }, [url]);
 
-  const image = "Assets/" + myData.icon + ".jpg";
+  const image = "Assets/" + newsData.icon + ".jpg";
 
   return (
     <Container>
@@ -55,10 +55,10 @@ function Weather() {
         <img className="background-img" src={image} alt="" />
       </div>
       <div className="weather-container">
-        <span className="description">{myData.description.toUpperCase()}</span>
-        <img className="icon" src={myData.img} alt="..." />
+        <span className="description">{newsData.description.toUpperCase()}</span>
+        <img className="icon" src={newsData.img} alt="..." />
         <h1>
-          {query} {myData.temperature}°C
+          {query} {newsData.temperature}°C
         </h1>
       </div>
       {isError !== "" && <h2>{isError}</h2>}
