@@ -18,7 +18,7 @@ function Home() {
   const [topHeadlines, setTopHeadlines] = useState([]);
   const [health, setHealth] = useState([]);
   const [business, setBusiness] = useState([]);
-  const [scienceAndTech, setScienceAndTech] = useState([]);
+  const [tech, setTech] = useState([]);
   const [sports, setSports] = useState([]);
   const [entertainment, setEntertainment] = useState([]);
 
@@ -28,7 +28,7 @@ function Home() {
     "https://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=4d15ab0c37164629a49726604ab9f6c6";
   const businessUrl =
     "https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=4d15ab0c37164629a49726604ab9f6c6";
-  const scienceAndTechUrl =
+  const techUrl =
     "https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=4d15ab0c37164629a49726604ab9f6c6";
   const sportsUrl =
     "https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=4d15ab0c37164629a49726604ab9f6c6";
@@ -41,7 +41,7 @@ function Home() {
         const reqTopHeadlines = await axios.get(topHeadlinesUrl);
         const reqHealth = await axios.get(healthUrl);
         const reqBusiness = await axios.get(businessUrl);
-        const reqScience = await axios.get(scienceAndTechUrl);
+        const reqScience = await axios.get(techUrl);
         const reqSports = await axios.get(sportsUrl);
         // const reqTech = await axios.get(techUrl);
         const reqEntertainment = await axios.get(entertaimentUrl);
@@ -61,16 +61,14 @@ function Home() {
               const resTopHeadlines = responses[0];
               const resHealth = responses[1];
               const resBusiness = responses[2];
-              const resScienceAndTech = responses[3];
+              const resTech = responses[3];
               const resSports = responses[4];
               const resEntertainment = responses[5];
 
               setTopHeadlines(resTopHeadlines.data.articles);
-              console.log(resTopHeadlines.data.articles[0]);
               setHealth(resHealth.data.articles);
-              console.log(resHealth.data.articles);
               setBusiness(resBusiness.data.articles);
-              setScienceAndTech(resScienceAndTech.data.articles);
+              setTech(resTech.data.articles);
               setSports(resSports.data.articles);
               setEntertainment(resEntertainment.data.articles);
             })
@@ -270,7 +268,7 @@ function Home() {
         <div className="cards-3">
           <SectionHeader headerTitle="Science/Technology" />
           <div className="card-3">
-            {scienceAndTech.slice(0, 2).map((article) => {
+            {tech.slice(0, 2).map((article) => {
               return (
                 <div className="flex-items">
                   <BootstrapCardsTitle
